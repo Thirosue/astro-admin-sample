@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Product from "../components/Product.astro";
+import Recommend from "../components/Recommend.astro";
+
+const products = [
+  {
+    title: "Earthen Bottle",
+    price: 48,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+  },
+  {
+    title: "Nomad Tumbler",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+  },
+  {
+    title: "Focus Paper Refill",
+    price: 89,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+  },
+  {
+    title: "Machined Mechanical Pencil",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+  },
+  {
+    title: "Focus Card Tray",
+    price: 64,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-05.jpg",
+  },
+  {
+    title: "Focus Multi-Pack",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-06.jpg",
+  },
+  {
+    title: "Brass Scissors",
+    price: 50,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-07.jpg",
+  },
+  {
+    title: "Focus Carry Pouch",
+    price: 32,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-08.jpg",
+  },
+];
+
+const recommends = [
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    color: "Black",
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+    color: "Aspen White",
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+    color: "Charcoal",
+  },
+  {
+    title: "Artwork Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+    color: "Iso Dots",
+  },
+];
+---
+
+<Layout title="Search - Astro">
+  <main>
+    <!-- Search Box -->
+    <div class="mx-auto">
+      <div class="max-w-xl text-center mx-auto">
+        <form>
+          <div
+            class="relative my-20 flex flex-col items-center gap-2 sm:flex-row sm:gap-3"
+          >
+            <div class="w-full">
+              <label for="hero-input" class="sr-only">Search</label>
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg
+                >
+              </div>
+              <input
+                type="text"
+                id="hero-input"
+                name="hero-input"
+                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Search Mockups, Logos..."
+              />
+            </div>
+            <a
+              class="w-full sm:w-auto whitespace-nowrap inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4"
+              href="#"
+            >
+              Search
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Search Box -->
+
+    <!-- Search Results -->
+    <div class="bg-white">
+      <div
+        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      >
+        <h2 class="sr-only">Products</h2>
+        <div
+          class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+        >
+          {products.map((product) => <Product {...product} />)}
+        </div>
+      </div>
+    </div>
+    <!-- End Search Results -->
+
+    <!-- Recommends -->
+    <div class="bg-white">
+      <div
+        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      >
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+          Customers also purchased
+        </h2>
+        <div
+          class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        >
+          {recommends.map((recommend) => <Recommend {...recommend} />)}
+        </div>
+      </div>
+    </div>
+    <!-- End Recommends -->
+  </main>
+</Layout>
